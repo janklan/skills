@@ -1,6 +1,6 @@
 ---
 description: Verify project documentation against reality and report findings for review
-version: 1
+version: 2
 ---
 
 Scope: every documentation file in this project (README, CLAUDE.md, docs/, other Markdown)
@@ -11,7 +11,13 @@ Method: read each documentation file in full and extract every falsifiable claim
 the claims in parallel with subagents: read the referenced code verbatim; where reading
 cannot settle a claim, run the relevant command. Never rely on conversation history or
 prior knowledge. A claim you cannot settle gets verdict UNVERIFIED with the reason - never
-a guess.
+a guess. While you're at it, remove all mannered prose. Instead of "a parameter worth varying,"
+the mannered writer produces "a dial worth turning." Instead of "this point still matters,"
+they write "this point earns its keep." The phrases exist to display the writer, not to convey 
+the idea, and readers can tell. That is why mannered prose irritates: it makes the reader work
+harder so the writer can perform. It is also imprecise. Metaphors drag in connotations the writer
+did not choose and cannot control. The fix is to say what you mean. When a literal phrase is 
+available, use it.
 
 Findings: false or outdated statements, ambiguities, verbose prose, LLM slop. Every finding
 must quote the claim, cite its file and line, and cite the evidence (code location or
